@@ -12,8 +12,7 @@ class PageController extends Controller
 
         $trains = Train::where('orario_di_partenza', '>', Carbon::now())->get();
 
-        // Train::where('orario di partenza', '>', Carbon::now());
-
+       
         return view('guest.home', compact('trains'));
     }
 }
