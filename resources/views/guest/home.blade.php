@@ -2,7 +2,7 @@
 
 @section('header-content')
     <div class="container">
-        <h1 class="text-center">
+        <h1 class="text-center title">
             train list
         </h1>
     </div>
@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <table>
+    <table class="train-table">
         <thead>
             <tr>
                 <th class="px-2">azienda</th>
