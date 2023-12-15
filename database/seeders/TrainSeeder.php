@@ -17,7 +17,7 @@ class TrainSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 2000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $new_train = new Train();
 
             /* $new_train->azienda = $faker->randomElement(['trenitalia', 'italo', 'trenord', 'tper', 'ATAC', 'Trentino Trasporti', 'Mediterranean Railways', 'DB Schenker Rail']); */
@@ -25,9 +25,9 @@ class TrainSeeder extends Seeder
             $new_train->stazione_di_partenza = $faker->city();
             $new_train->stazione_di_arrivo = $faker->city();
             $new_train->orario_di_partenza = $faker->dateTimeBetween('-1 week', '+1 week');
-            $new_train->orario_di_arrivo = $faker->dateTimeBetween('-6 days', '+8 days');
-            $new_train->codice_treno = $faker->numerify('#####');
-            $new_train->numero_di_carrozze = $faker->numberBetween(7, 20); 
+            $new_train->orario_di_arrivo = $faker->dateTimeBetween($new_train->orario_di_partenza, '+1 day');
+            $new_train->codice_treno = $faker->unique()->numerify('#####');
+            $new_train->numero_di_carrozze = $faker->numberBetween(7, 15); 
             $new_train->in_orario = $faker->randomElement([false, true]);
             $new_train->cancellato = $faker->randomElement([false, true]);
 
